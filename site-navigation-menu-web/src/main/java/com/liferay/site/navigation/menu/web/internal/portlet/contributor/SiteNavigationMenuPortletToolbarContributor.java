@@ -52,8 +52,8 @@ import org.osgi.service.component.annotations.Reference;
 		"mvc.path=-", "mvc.path=/view.jsp"
 	},
 	service = {
-		SiteNavigationMenuPortletToolbarContributor.class,
-		PortletToolbarContributor.class
+		PortletToolbarContributor.class,
+		SiteNavigationMenuPortletToolbarContributor.class
 	}
 )
 public class SiteNavigationMenuPortletToolbarContributor
