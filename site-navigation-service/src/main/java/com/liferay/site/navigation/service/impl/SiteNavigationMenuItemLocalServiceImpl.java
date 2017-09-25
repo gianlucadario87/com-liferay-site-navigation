@@ -31,7 +31,7 @@ public class SiteNavigationMenuItemLocalServiceImpl
 
 	@Override
 	public SiteNavigationMenuItem addSiteNavigationMenuItem(
-			long groupId, long userId, long siteNavigationMenuId,
+			long userId, long groupId, long siteNavigationMenuId,
 			long parentSiteNavigationMenuItemId, String type,
 			String typeSettings, ServiceContext serviceContext)
 		throws PortalException {

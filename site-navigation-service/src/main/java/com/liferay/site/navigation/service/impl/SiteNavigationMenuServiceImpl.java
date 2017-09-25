@@ -34,7 +34,7 @@ public class SiteNavigationMenuServiceImpl
 		throws PortalException {
 
 		return siteNavigationMenuLocalService.addSiteNavigationMenu(
-			groupId, getUserId(), name, serviceContext);
+			getUserId(), groupId, name, serviceContext);
 	}
 
 	@Override
