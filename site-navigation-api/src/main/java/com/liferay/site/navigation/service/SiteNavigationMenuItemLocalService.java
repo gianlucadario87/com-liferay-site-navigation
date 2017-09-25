@@ -61,8 +61,8 @@ public interface SiteNavigationMenuItemLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link SiteNavigationMenuItemLocalServiceUtil} to access the site navigation menu item local service. Add custom service methods to {@link com.liferay.site.navigation.service.impl.SiteNavigationMenuItemLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
-	public SiteNavigationMenuItem addSiteNavigationMenuItem(long groupId,
-		long userId, long siteNavigationMenuId,
+	public SiteNavigationMenuItem addSiteNavigationMenuItem(long userId,
+		long groupId, long siteNavigationMenuId,
 		long parentSiteNavigationMenuItemId, java.lang.String type,
 		java.lang.String typeSettings, ServiceContext serviceContext)
 		throws PortalException;

@@ -66,12 +66,12 @@ import java.rmi.RemoteException;
 @ProviderType
 public class SiteNavigationMenuServiceSoap {
 	public static com.liferay.site.navigation.model.SiteNavigationMenuSoap addSiteNavigationMenu(
-		long groupId, long userId, java.lang.String name,
+		long groupId, java.lang.String name,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 		try {
 			com.liferay.site.navigation.model.SiteNavigationMenu returnValue = SiteNavigationMenuServiceUtil.addSiteNavigationMenu(groupId,
-					userId, name, serviceContext);
+					name, serviceContext);
 
 			return com.liferay.site.navigation.model.SiteNavigationMenuSoap.toSoapModel(returnValue);
 		}

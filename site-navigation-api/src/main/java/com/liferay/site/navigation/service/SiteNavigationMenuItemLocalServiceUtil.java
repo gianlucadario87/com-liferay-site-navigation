@@ -42,13 +42,13 @@ public class SiteNavigationMenuItemLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to {@link com.liferay.site.navigation.service.impl.SiteNavigationMenuItemLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static com.liferay.site.navigation.model.SiteNavigationMenuItem addSiteNavigationMenuItem(
-		long groupId, long userId, long siteNavigationMenuId,
+		long userId, long groupId, long siteNavigationMenuId,
 		long parentSiteNavigationMenuItemId, java.lang.String type,
 		java.lang.String typeSettings,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
-				   .addSiteNavigationMenuItem(groupId, userId,
+				   .addSiteNavigationMenuItem(userId, groupId,
 			siteNavigationMenuId, parentSiteNavigationMenuItemId, type,
 			typeSettings, serviceContext);
 	}

@@ -56,8 +56,7 @@ import com.liferay.site.navigation.service.SiteNavigationMenuServiceUtil;
 @ProviderType
 public class SiteNavigationMenuServiceHttp {
 	public static com.liferay.site.navigation.model.SiteNavigationMenu addSiteNavigationMenu(
-		HttpPrincipal httpPrincipal, long groupId, long userId,
-		java.lang.String name,
+		HttpPrincipal httpPrincipal, long groupId, java.lang.String name,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
@@ -66,7 +65,7 @@ public class SiteNavigationMenuServiceHttp {
 					_addSiteNavigationMenuParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					userId, name, serviceContext);
+					name, serviceContext);
 
 			Object returnObj = null;
 
@@ -152,7 +151,7 @@ public class SiteNavigationMenuServiceHttp {
 
 	private static Log _log = LogFactoryUtil.getLog(SiteNavigationMenuServiceHttp.class);
 	private static final Class<?>[] _addSiteNavigationMenuParameterTypes0 = new Class[] {
-			long.class, long.class, java.lang.String.class,
+			long.class, java.lang.String.class,
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _deleteSiteNavigationMenuParameterTypes1 = new Class[] {
