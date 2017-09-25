@@ -49,7 +49,6 @@ public class SiteNavigationMenuLocalServiceImpl
 		siteNavigationMenu.setUserName(user.getFullName());
 		siteNavigationMenu.setCreateDate(
 			serviceContext.getCreateDate(new Date()));
-
 		siteNavigationMenu.setName(name);
 
 		siteNavigationMenuPersistence.update(siteNavigationMenu);
@@ -73,12 +72,12 @@ public class SiteNavigationMenuLocalServiceImpl
 			SiteNavigationMenu siteNavigationMenu)
 		throws PortalException {
 
-		// Menu
+		// Site navigation menu
 
 		siteNavigationMenuPersistence.remove(
 			siteNavigationMenu.getSiteNavigationMenuId());
 
-		// Menu Items
+		// Site navigation menu items
 
 		List<SiteNavigationMenuItem> siteNavigationMenuItems =
 			siteNavigationMenuItemLocalService.getSiteNavigationMenuItems(
