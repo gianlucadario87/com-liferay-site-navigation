@@ -78,20 +78,20 @@ public class SiteNavigationMenuItemLocalServiceImpl
 	}
 
 	@Override
-	public List<SiteNavigationMenuItem> getSiteNavigationMenuItems(
-		long siteNavigationMenuId) {
-
-		return siteNavigationMenuItemPersistence.findBySiteNavigationMenuId(
-			siteNavigationMenuId);
-	}
-
-	@Override
-	public List<SiteNavigationMenuItem> getSiteNavigationMenuItemsByParent(
+	public List<SiteNavigationMenuItem> getChildSiteNavigationMenuItems(
 		long parentSiteNavigationMenuItemId) {
 
 		return siteNavigationMenuItemPersistence.
 			findByParentSiteNavigationMenuItemId(
 				parentSiteNavigationMenuItemId);
+	}
+
+	@Override
+	public List<SiteNavigationMenuItem> getSiteNavigationMenuItems(
+		long siteNavigationMenuId) {
+
+		return siteNavigationMenuItemPersistence.findBySiteNavigationMenuId(
+			siteNavigationMenuId);
 	}
 
 }
