@@ -36,12 +36,12 @@ public class SiteNavigationMenuItemLocalServiceImpl
 			String typeSettings, ServiceContext serviceContext)
 		throws PortalException {
 
+		User user = userLocalService.getUser(userId);
+
 		long siteNavigationMenuItemId = counterLocalService.increment();
 
 		SiteNavigationMenuItem siteNavigationMenuItem =
 			siteNavigationMenuItemPersistence.create(siteNavigationMenuItemId);
-
-		User user = userLocalService.getUser(userId);
 
 		siteNavigationMenuItem.setGroupId(groupId);
 		siteNavigationMenuItem.setCompanyId(user.getCompanyId());
@@ -101,11 +101,11 @@ public class SiteNavigationMenuItemLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
+		User user = userLocalService.getUser(userId);
+
 		SiteNavigationMenuItem siteNavigationMenuItem =
 			siteNavigationMenuItemPersistence.fetchByPrimaryKey(
 				siteNavigationMenuItemId);
-
-		User user = userLocalService.getUser(userId);
 
 		siteNavigationMenuItem.setModifiedDate(
 			serviceContext.getModifiedDate(new Date()));
