@@ -93,13 +93,14 @@ renderResponse.setTitle(siteNavigationMenu.getName());
 
 				<%
 				for (SiteNavigationMenuItem siteNavigationMenuItem : siteNavigationMenuItems) {
+					Map<String, Object> data = new HashMap<String, Object>();
+
+					data.put("siteNavigationMenuItemId", siteNavigationMenuItem.getSiteNavigationMenuItemId());
+
 					SiteNavigationMenuItemType siteNavigationMenuItemType = siteNavigationMenuItemTypeRegistry.getSiteNavigationMenuItemType(siteNavigationMenuItem.getType());
 
 					String title = siteNavigationMenuItemType.getTitle(siteNavigationMenuItem, locale);
 
-					Map<String, Object> data = new HashMap<String, Object>();
-
-					data.put("siteNavigationMenuItemId", siteNavigationMenuItem.getSiteNavigationMenuItemId());
 					data.put("title", title);
 
 					request.setAttribute("edit_site_navigation_menu.jsp-siteNavigationMenuItemId", siteNavigationMenuItem.getSiteNavigationMenuItemId());
