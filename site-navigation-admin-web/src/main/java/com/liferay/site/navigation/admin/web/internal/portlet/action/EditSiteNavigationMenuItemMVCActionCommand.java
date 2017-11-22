@@ -54,7 +54,6 @@ public class EditSiteNavigationMenuItemMVCActionCommand
 
 		long parentSiteNavigationMenuItemId = ParamUtil.getLong(
 			actionRequest, "parentSiteNavigationMenuItemId");
-
 		UnicodeProperties typeSettingsProperties =
 			PropertiesParamUtil.getProperties(
 				actionRequest, "TypeSettingsProperties--");
