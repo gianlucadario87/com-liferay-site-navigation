@@ -90,7 +90,7 @@ renderResponse.setTitle(siteNavigationMenu.getName());
 		</div>
 	</c:when>
 	<c:otherwise>
-		<liferay-ui:error key="<%= InvalidSiteNavigationMenuItemOrderException.class.getName() %>" message="invalid-site-navigation-menu-items-order" />
+		<liferay-ui:error key="<%= InvalidSiteNavigationMenuItemOrderException.class.getName() %>" message="the-order-of-site-navigation-menu-items-is-invalid" />
 
 		<div class="container-fluid-1280">
 			<div class="row">
