@@ -40,9 +40,9 @@ public class SiteNavigationMenuLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		validate(name);
-
 		// Site navigation menu
+
+		validate(name);
 
 		User user = userLocalService.getUser(userId);
 
