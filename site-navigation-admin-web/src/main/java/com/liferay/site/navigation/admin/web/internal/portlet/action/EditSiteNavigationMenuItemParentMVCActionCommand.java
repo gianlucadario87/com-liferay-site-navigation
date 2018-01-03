@@ -58,7 +58,6 @@ public class EditSiteNavigationMenuItemParentMVCActionCommand
 
 		long parentSiteNavigationMenuItemId = ParamUtil.getLong(
 			actionRequest, "parentSiteNavigationMenuItemId");
-
 		int order = ParamUtil.getInteger(actionRequest, "order");
 
 		try {
