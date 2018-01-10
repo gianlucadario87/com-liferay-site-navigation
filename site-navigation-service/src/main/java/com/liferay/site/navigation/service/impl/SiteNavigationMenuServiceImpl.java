@@ -110,7 +110,7 @@ public class SiteNavigationMenuServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException {
 
-		SiteNavigationMenuPermission.check(
+		_siteNavigationMenuModelResourcePermission.check(
 			getPermissionChecker(), siteNavigationMenuId, ActionKeys.UPDATE);
 
 		return siteNavigationMenuLocalService.updateSiteNavigationMenu(
