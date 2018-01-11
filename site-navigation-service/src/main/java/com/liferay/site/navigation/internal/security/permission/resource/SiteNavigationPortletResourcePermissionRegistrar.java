@@ -12,15 +12,15 @@
  * details.
  */
 
-package com.liferay.site.navigation.internal.security.permission;
+package com.liferay.site.navigation.internal.security.permission.resource;
 
-import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
-import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
+import com.liferay.exportimport.kernel.staging.permission.StagingPermission;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermissionFactory;
+import com.liferay.portal.kernel.security.permission.resource.StagedPortletPermissionLogic;
 import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.site.navigation.admin.constants.SiteNavigationAdminPortletKeys;
 import com.liferay.site.navigation.constants.SiteNavigationConstants;
-import com.liferay.site.navigation.model.SiteNavigationMenuItem;
-import com.liferay.site.navigation.service.SiteNavigationMenuItemLocalService;
 
 import java.util.Dictionary;
 
@@ -35,24 +35,21 @@ import org.osgi.service.component.annotations.Reference;
  * @author Preston Crary
  */
 @Component(immediate = true)
-public class SiteNavigationMenuItemPermissionRegistrar {
+public class SiteNavigationPortletResourcePermissionRegistrar {
 
 	@Activate
 	public void activate(BundleContext bundleContext) {
 		Dictionary<String, Object> properties = new HashMapDictionary<>();
 
-		properties.put(
-			"model.class.name", SiteNavigationMenuItem.class.getName());
+		properties.put("resource.name", SiteNavigationConstants.RESOURCE_NAME);
 
 		_serviceRegistration = bundleContext.registerService(
-			ModelResourcePermission.class,
-			ModelResourcePermissionFactory.create(
-				SiteNavigationMenuItem.class,
-				SiteNavigationMenuItem::getSiteNavigationMenuItemId,
-				_siteNavigationMenuItemLocalService::getSiteNavigationMenuItem,
-				_portletResourcePermission,
-				(modelResourcePermission, consumer) -> {
-				}),
+			PortletResourcePermission.class,
+			PortletResourcePermissionFactory.create(
+				SiteNavigationConstants.RESOURCE_NAME,
+				new StagedPortletPermissionLogic(
+					_stagingPermission,
+					SiteNavigationAdminPortletKeys.SITE_NAVIGATION_ADMIN)),
 			properties);
 	}
 
@@ -61,15 +58,9 @@ public class SiteNavigationMenuItemPermissionRegistrar {
 		_serviceRegistration.unregister();
 	}
 
-	@Reference(
-		target = "(resource.name=" + SiteNavigationConstants.RESOURCE_NAME + ")"
-	)
-	private PortletResourcePermission _portletResourcePermission;
-
-	private ServiceRegistration<ModelResourcePermission> _serviceRegistration;
+	private ServiceRegistration<PortletResourcePermission> _serviceRegistration;
 
 	@Reference
-	private SiteNavigationMenuItemLocalService
-		_siteNavigationMenuItemLocalService;
+	private StagingPermission _stagingPermission;
 
 }

@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.site.navigation.internal.security.permission;
+package com.liferay.site.navigation.internal.security.permission.resource;
 
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
@@ -35,7 +35,7 @@ import org.osgi.service.component.annotations.Reference;
  * @author Preston Crary
  */
 @Component(immediate = true)
-public class SiteNavigationMenuPermissionRegistrar {
+public class SiteNavigationMenuModelResourcePermissionRegistrar {
 
 	@Activate
 	public void activate(BundleContext bundleContext) {
