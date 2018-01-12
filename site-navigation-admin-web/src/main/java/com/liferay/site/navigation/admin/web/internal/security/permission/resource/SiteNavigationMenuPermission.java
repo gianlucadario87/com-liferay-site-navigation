@@ -12,12 +12,12 @@
  * details.
  */
 
-package com.liferay.site.navigation.admin.web.internal.security.permission;
+package com.liferay.site.navigation.admin.web.internal.security.permission.resource;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
-import com.liferay.site.navigation.model.SiteNavigationMenuItem;
+import com.liferay.site.navigation.model.SiteNavigationMenu;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -26,39 +26,37 @@ import org.osgi.service.component.annotations.Reference;
  * @author Preston Crary
  */
 @Component(immediate = true)
-public class SiteNavigationMenuItemPermission {
+public class SiteNavigationMenuPermission {
 
 	public static boolean contains(
-			PermissionChecker permissionChecker, long siteNavigationMenuItemId,
+			PermissionChecker permissionChecker, long siteNavigationMenuId,
 			String actionId)
 		throws PortalException {
 
-		return _siteNavigationMenuItemModelResourcePermission.contains(
-			permissionChecker, siteNavigationMenuItemId, actionId);
+		return _siteNavigationMenuModelResourcePermission.contains(
+			permissionChecker, siteNavigationMenuId, actionId);
 	}
 
 	public static boolean contains(
 			PermissionChecker permissionChecker,
-			SiteNavigationMenuItem siteNavigationMenuItem, String actionId)
+			SiteNavigationMenu siteNavigationMenu, String actionId)
 		throws PortalException {
 
-		return _siteNavigationMenuItemModelResourcePermission.contains(
-			permissionChecker, siteNavigationMenuItem, actionId);
+		return _siteNavigationMenuModelResourcePermission.contains(
+			permissionChecker, siteNavigationMenu, actionId);
 	}
 
 	@Reference(
-		target = "(model.class.name=com.liferay.site.navigation.model.SiteNavigationMenuItem)",
+		target = "(model.class.name=com.liferay.site.navigation.model.SiteNavigationMenu)",
 		unbind = "-"
 	)
 	protected void setModelResourcePermission(
-		ModelResourcePermission<SiteNavigationMenuItem>
-			modelResourcePermission) {
+		ModelResourcePermission<SiteNavigationMenu> modelResourcePermission) {
 
-		_siteNavigationMenuItemModelResourcePermission =
-			modelResourcePermission;
+		_siteNavigationMenuModelResourcePermission = modelResourcePermission;
 	}
 
-	private static ModelResourcePermission<SiteNavigationMenuItem>
-		_siteNavigationMenuItemModelResourcePermission;
+	private static ModelResourcePermission<SiteNavigationMenu>
+		_siteNavigationMenuModelResourcePermission;
 
 }
