@@ -152,11 +152,11 @@ public class SiteNavigationMenuItemLocalServiceImpl
 
 		// Child site navigation menu item
 
+		int newOrder = 0;
+
 		List<SiteNavigationMenuItem> children = getSiteNavigationMenuItems(
 			siteNavigationMenuItem.getSiteNavigationMenuId(),
 			parentSiteNavigationMenuItemId);
-
-		int newOrder = 0;
 
 		for (SiteNavigationMenuItem child : children) {
 			if (newOrder == order) {
