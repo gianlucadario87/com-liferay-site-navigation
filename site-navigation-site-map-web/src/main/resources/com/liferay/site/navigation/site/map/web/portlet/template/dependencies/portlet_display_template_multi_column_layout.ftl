@@ -1,24 +1,26 @@
 <#if entries?has_content>
 	<@liferay_aui.row>
-		<#list entries as entry>
-			<@liferay_aui.col width=25>
-				<div class="results-header">
-					<h3>
-						<a
+		<#if layoutPermission.containsWithoutViewableGroup(permissionChecker, entry, "VIEW")>
+			<#list entries as entry>
+				<@liferay_aui.col width=25>
+					<div class="results-header">
+						<h3>
+							<a
 
-						<#assign layoutType = entry.getLayoutType() />
+							<#assign layoutType = entry.getLayoutType() />
 
-						<#if layoutType.isBrowsable()>
-							href="${portalUtil.getLayoutURL(entry, themeDisplay)}"
-						</#if>
+							<#if layoutType.isBrowsable()>
+								href="${portalUtil.getLayoutURL(entry, themeDisplay)}"
+							</#if>
 
-						>${entry.getName(locale)}</a>
-					</h3>
-				</div>
+							>${entry.getName(locale)}</a>
+						</h3>
+					</div>
 
-				<@displayPages pages=entry.getChildren() />
-			</@liferay_aui.col>
-		</#list>
+					<@displayPages pages=entry.getChildren() />
+				</@liferay_aui.col>
+			</#list>
+		</#if>
 	</@liferay_aui.row>
 </#if>
 
