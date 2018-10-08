@@ -17,7 +17,7 @@
 						</h3>
 					</div>
 
-					<@displayPages pages=entry.getChildren() />
+					<@displayPages pages=entry.getChildren(permissionChecker) />
 				</@liferay_aui.col>
 			</#list>
 		</#if>
@@ -41,7 +41,7 @@
 
 					>${page.getName(locale)}</a>
 
-					<@displayPages pages=page.getChildren() />
+					<@displayPages pages=page.getChildren(permissionChecker) />
 				</li>
 			</#list>
 		</ul>
