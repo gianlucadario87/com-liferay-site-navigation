@@ -222,9 +222,16 @@ public class NavigationTag extends IncludeTag {
 
 		if (_rootLayoutType.equals("relative")) {
 			if ((_rootLayoutLevel >= 0) &&
-				(_rootLayoutLevel < branchNavItems.size())) {
+				(_rootLayoutLevel <= branchNavItems.size())) {
 
-				rootNavItem = branchNavItems.get(_rootLayoutLevel);
+				int absoluteLevel = branchNavItems.size() - _rootLayoutLevel;
+
+				if (absoluteLevel == 0) {
+					navItems = NavItem.fromLayouts(request, themeDisplay, null);
+				}
+				else {
+					rootNavItem = branchNavItems.get(absoluteLevel - 1);
+				}
 			}
 		}
 		else if (_rootLayoutType.equals("absolute")) {
