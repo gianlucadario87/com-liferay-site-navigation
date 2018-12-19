@@ -2,9 +2,7 @@
 	<@liferay_aui.row>
 		<#if layoutPermission.containsWithoutViewableGroup(permissionChecker, entry, "VIEW")>
 			<#list entries as entry>
-				<@liferay_aui.col
-					width=25
-				>
+				<@liferay_aui.col width=25>
 					<div class="results-header">
 						<h3>
 							<a
