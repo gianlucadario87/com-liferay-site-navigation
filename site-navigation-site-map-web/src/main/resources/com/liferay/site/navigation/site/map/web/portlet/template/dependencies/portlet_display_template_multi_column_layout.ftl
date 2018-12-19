@@ -2,7 +2,9 @@
 	<@liferay_aui.row>
 		<#if layoutPermission.containsWithoutViewableGroup(permissionChecker, entry, "VIEW")>
 			<#list entries as entry>
-				<@liferay_aui.col width=25>
+				<@liferay_aui.col
+						width=25
+				>
 					<div class="results-header">
 						<h3>
 							<a
@@ -17,7 +19,10 @@
 						</h3>
 					</div>
 
-					<@displayPages pages=entry.getChildren(permissionChecker) />
+					<@displayPages
+							depth=1
+							pages=entry.getChildren(permissionChecker)
+					/>
 				</@liferay_aui.col>
 			</#list>
 		</#if>
@@ -25,9 +30,10 @@
 </#if>
 
 <#macro displayPages
+	depth
 	pages
 >
-	<#if pages?has_content>
+	<#if pages?has_content && ((depth < displayDepth?number) || (displayDepth?number == 0))>
 		<ul class="child-pages">
 			<#list pages as page>
 				<li>
@@ -41,7 +47,10 @@
 
 					>${page.getName(locale)}</a>
 
-					<@displayPages pages=page.getChildren(permissionChecker) />
+					<@displayPages
+							depth=depth + 1
+							pages=page.getChildren(permissionChecker)
+					/>
 				</li>
 			</#list>
 		</ul>
