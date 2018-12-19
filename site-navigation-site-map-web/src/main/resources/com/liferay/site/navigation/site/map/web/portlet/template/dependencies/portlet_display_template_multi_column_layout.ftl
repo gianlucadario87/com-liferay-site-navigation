@@ -3,7 +3,7 @@
 		<#if layoutPermission.containsWithoutViewableGroup(permissionChecker, entry, "VIEW")>
 			<#list entries as entry>
 				<@liferay_aui.col
-						width=25
+					width=25
 				>
 					<div class="results-header">
 						<h3>
@@ -20,8 +20,8 @@
 					</div>
 
 					<@displayPages
-							depth=1
-							pages=entry.getChildren(permissionChecker)
+						depth=1
+						pages=entry.getChildren(permissionChecker)
 					/>
 				</@liferay_aui.col>
 			</#list>
@@ -48,8 +48,8 @@
 					>${page.getName(locale)}</a>
 
 					<@displayPages
-							depth=depth + 1
-							pages=page.getChildren(permissionChecker)
+						depth=depth + 1
+						pages=page.getChildren(permissionChecker)
 					/>
 				</li>
 			</#list>
